@@ -3,5 +3,7 @@
 {
   imports = [
     ./nvim/pkgs.nix
+    ./git.nix
+    ./alacritty.nix
   ];
 }
