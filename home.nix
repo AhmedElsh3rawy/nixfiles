@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./sh.nix
     ./system/imports.nix
     ./user/ahmed.nix
   ];
