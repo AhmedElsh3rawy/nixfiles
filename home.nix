@@ -79,18 +79,6 @@
     # EDITOR = "emacs";
   };
 
-  # i3wm
-  xsession.windowManager.i3 = {
-    enable = true;
-    config = {
-      modifier = "Mod4";
-      gaps = {
-        inner = 0;
-        outer = -1;
-      };
-    };
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
