@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  services.polybar = {
-    enable = true;
-  };
+  # services.polybar = {
+  #   enable = true;
+  # };
 
 }
