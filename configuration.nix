@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -85,7 +86,7 @@
     description = "ahmed";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -99,30 +100,25 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     neovim
-     wget
-     git
-     unzip
-     neofetch
-     gcc
-     gnumake
-     pavucontrol
-     nodejs
-     go
-     rustup
-     python3
-     just
-     xsel
-     i3
-     tmux
-     alacritty
-     zsh
-     btop
-     oh-my-posh
-     vscodium
-     fzf
-     zed-editor
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
+    wget
+    git
+    unzip
+    neofetch
+    fastfetch
+    nitch
+    pavucontrol
+    rustc
+    xsel
+    i3
+    tmux
+    alacritty
+    zsh
+    btop
+    oh-my-posh
+    fzf
+    ripgrep
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

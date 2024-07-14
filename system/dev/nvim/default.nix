@@ -1,4 +1,4 @@
-{config, pkgs,...}:
+{ config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -18,6 +18,13 @@
     mypy
     nodePackages.prettier
     golines
+    nodePackages.eslint
+    tailwindcss-language-server
   ];
+
+  # home.file.".config/nvim" = {
+  #   source = ./nvim;
+  #   recursive = true;
+  # };
 
 }

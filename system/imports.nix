@@ -2,11 +2,11 @@
 
 {
   imports = [
+    ./dev/default.nix
     ./sh.nix
-    ./nvim/pkgs.nix
     ./git.nix
     ./alacritty.nix
-    ./i3.nix
+    ./wm/i3.nix
     ./gui/default.nix
   ];
 }

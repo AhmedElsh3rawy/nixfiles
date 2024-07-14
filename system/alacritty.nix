@@ -8,7 +8,10 @@
         "TERM" = "xterm-256color";
       };
 
-      window.opacity = 1;
+      window = {
+        opacity = 1;
+        padding = { x = 5; y = 5; };
+      };
 
       font = {
         normal = {

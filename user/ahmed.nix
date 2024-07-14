@@ -6,6 +6,9 @@
     anki
     zathura
     obsidian
+    thunderbird
+    telegram-desktop
+    discord
   ];
 
 }
