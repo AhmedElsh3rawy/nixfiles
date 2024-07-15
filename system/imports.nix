@@ -8,5 +8,6 @@
     ./alacritty.nix
     ./wm/i3.nix
     ./gui/default.nix
+    ./programs/default.nix
   ];
 }
