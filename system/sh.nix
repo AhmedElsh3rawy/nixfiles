@@ -2,6 +2,7 @@
 let
   myAliases = {
     nf = "neofetch";
+    ff = "fastfetch";
     nv = "nvim";
     ll = "ls -la";
     lg = "lazygit";
@@ -23,6 +24,7 @@ in
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    historySubstringSearch.enable = true;
     shellAliases = myAliases;
   };
 
