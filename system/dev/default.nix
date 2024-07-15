@@ -3,6 +3,7 @@
 {
   imports = [
     ./nvim/default.nix
+    ./db/psql.nix
   ];
 
   home.packages = with pkgs;[
