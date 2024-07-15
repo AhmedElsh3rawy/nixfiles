@@ -9,6 +9,7 @@
     thunderbird
     telegram-desktop
     discord
+    brave
   ];
 
 }
