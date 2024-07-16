@@ -32,6 +32,7 @@
     fira-code-nerdfont
     # db
     postgresql
+    gnome.gnome-disk-utility
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

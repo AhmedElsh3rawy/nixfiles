@@ -10,6 +10,8 @@
     telegram-desktop
     discord
     brave
+    postman
+    obs-studio
   ];
 
 }

@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs;[
-    polybar
     feh
     dunst
     picom
@@ -11,6 +10,11 @@
     haskellPackages.greenclip
     brightnessctl
     scrot
+    lxappearance
+    alsa-utils
+    pamixer
+    xorg.xev
+    libnotify
   ];
 
   # i3wm
@@ -18,27 +22,56 @@
     enable = true;
     config = rec {
       modifier = "Mod4";
-      window.border = 0;
-      # bars = [ ];
+      bars = [ ];
 
       gaps = {
-        inner = 4;
-        outer = 1;
+        inner = 3;
+        outer = -1;
       };
 
+      window = {
+        border = 0;
+        hideEdgeBorders = "smart";
+
+        # commands = [
+        #   # Start brave in fullscreen by default.
+        #   {
+        #     command = "fullscreen enable";
+        #     criteria = { class = "Brave"; };
+        #   }
+        #
+        #   # Start thunar in fullscreen by default.
+        #   {
+        #     command = "fullscreen enable";
+        #     criteria = { class = "Thunar"; };
+        #   }
+        #
+        #   # Start vscodium in fullscreen by default.
+        #   {
+        #     command = "fullscreen enable";
+        #     criteria = { class = "Codium"; };
+        #   }
+        #   {
+        #     command = "fullscreen enable";
+        #     criteria = { class = "zed"; };
+        #   }
+        #
+        # ];
+      };
       keybindings = lib.mkOptionDefault {
-        # "XF86AudioMute" = "exec amixer set Master toggle";
-        # "XF86AudioLowerVolume" = "exec amixer set Master 4%-";
-        # "XF86AudioRaiseVolume" = "exec amixer set Master 4%+";
-        "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
-        "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
         "${modifier}+q" = "kill";
-        "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
-        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -modi drun -show drun";
-        "${modifier}+Shift+d" = "exec ${pkgs.rofi}/bin/rofi -show window";
-        "${modifier}+w" = "exec ${pkgs.firefox}/bin/firefox";
+        "${modifier}+Return" = "workspace 1; exec --no-startup-id ${pkgs.alacritty}/bin/alacritty";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -modi drun -show drun -show-icons";
+        "${modifier}+Shift+d" = "exec ${pkgs.rofi}/bin/rofi -show window -show-icons";
+        "${modifier}+w" = "workspace 2; exec ${pkgs.brave}/bin/brave";
         "${modifier}+n" = "exec Thunar";
-        # "${modifier}+Shift+x" = "exec systemctl suspend";
+        # to move with vim keys
+        "${modifier}+h" = "focus left";
+        "${modifier}+j" = "focus down";
+        "${modifier}+k" = "focus up";
+        "${modifier}+l" = "focus right";
+        # shutdown
+        "${modifier}+Shift+q" = "exec poweroff";
       };
 
       startup = [
@@ -47,13 +80,13 @@
           always = true;
           notification = false;
         }
-        # {
-        #   command = "systemctl --user restart polybar.service";
-        #   always = true;
-        #   notification = false;
-        # }
         {
-          command = "feh --bg-fill /home/ahmed/Downloads/background.jpg";
+          command = "polybar &";
+          always = true;
+          notification = false;
+        }
+        {
+          command = "feh --bg-fill /home/ahmed/Pictures/wallpaper/cyperbunk_girl.jpg";
           always = true;
           notification = false;
         }
@@ -61,19 +94,21 @@
 
     };
 
+
+
     extraConfig = ''
           
           default_border pixel 0
           default_floating_border pixel 0
 
           assign [class="alacritty"] 1
-          assign [class="(?i)firefox"] 2
+          assign [class="brave"] 2
           assign [class="Thunar"] 3
-          assign [class="thunderbird"] 4
+          assign [class="Thunderbird"] 4
           assign [class="TelegramDesktop"] 5
 
           for_window [class=alacritty] focus
-          for_window [class=(?i)firefox] focus
+          for_window [class=brave] focus
           for_window [class=Thunar] focus
           for_window [class=Thunderbird] focus
           for_window [class=TelegramDesktop] focus
